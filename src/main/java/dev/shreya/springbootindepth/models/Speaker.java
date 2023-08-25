@@ -1,5 +1,7 @@
 package dev.shreya.springbootindepth.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -33,6 +35,7 @@ public class Speaker {
   @JdbcType(VarbinaryJdbcType.class)
   private byte[] speaker_photo;
   
-  @ManyToMany(mappedBy = "speakers")
+  @ManyToMany(mappedBy = "speakers", cascade = CascadeType.ALL)
+  @JsonIgnore
   private List<Session> sessions;
 }
