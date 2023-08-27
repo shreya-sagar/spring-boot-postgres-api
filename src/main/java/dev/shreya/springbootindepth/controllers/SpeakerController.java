@@ -60,7 +60,6 @@ public class SpeakerController {
     else
       return ResponseEntity.notFound().build();
   }
-
   @DeleteMapping("/{id}")
   public ResponseEntity<String> delete(@PathVariable Long id) {
     Optional<Speaker> speakerTobeDeleted = speakerRepository.findById(id);
