@@ -1,4 +1,4 @@
-package dev.shreya.springbootindepth.controllers;
+package dev.shreya.springbootindepth.controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +12,7 @@ public class HomeController {
   @Value("${app.version}")
   private String appVersion;
 
-  @GetMapping
+  @GetMapping("/version")
   public Map<String,String> getAppVersion() {
     Map<String,String> map = new HashMap<String,String>();
     map.put("app-version",appVersion);

@@ -1,3 +1,6 @@
+- Use JNDI - For setting credentials
+- To resolve error "Filename too long warning: Clone succeeded, but checkout failed."  `git config --system core.longpaths true`
+----------------------------------------
 - **Automarshalling** : In the Java ecosystem, the `Jackson` library provides automarshalling capabilities to convert Java objects to JSON and vice versa. In Python, the `pickle` module provides serialization and deserialization capabilities.
 - **Serialization**: Serialization is the process of converting an object's state (data) into a byte stream or another format that can be easily stored, transmitted, or persisted. This is particularly useful when you need to save an object's state to a file, send it over a network, or store it in a database. 
 In Java, you can achieve serialization by implementing the `Serializable` interface. Objects of classes that implement this interface can be converted into byte streams using `ObjectOutputStream`. Here's an example:
@@ -87,10 +90,9 @@ implementation ('org.springframework.boot:spring-boot-starter-web') {
 implementation 'org.springframework.boot:spring-boot-starter-jetty'
 ```
 - Change in application.properties
-
-`spring.property-placeholder.helper-class=org.springframework.beans.factory.config.PropertyPlaceholderHelper`
-----------------------------------------
-JNDI - For setting credentials
+```properties
+spring.property-placeholder.helper-class=org.springframework.beans.factory.config.PropertyPlaceholderHelper
+```
 ----------------------------------------
 To create a ‘fully executable’ jar with Maven, use the following plugin configuration:
 ```xml
@@ -108,3 +110,41 @@ tasks.named('bootJar') {
 launchScript()
 }
 ```
+What I had done:
+```groovy
+tasks.named("bootJar") {
+    mainClass = "dev.shreya.springbootindepth.SpringBootInDepthApplication"
+}
+```
+----------------------------------------
+**For WAR file**
+https://docs.spring.io/spring-boot/docs/1.4.3.RELEASE/reference/html/build-tool-plugins-gradle-plugin.html
+https://docs.spring.io/spring-boot/docs/2.1.9.RELEASE/reference/html/howto-traditional-deployment.html
+```groovy
+plugins {
+id 'war'
+}
+```
+```java
+@SpringBootApplication
+public class SpringBootInDepthApplication extends SpringBootServletInitializer {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringBootInDepthApplication.class, args);
+	}
+
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		return application.sources(SpringBootInDepthApplication.class);
+	}
+}
+```
+----------------------------------------
+For JSP syntax highlighting in Intellij community
+"Settings > Editor > File Types". Under "Recognized File Types", click on HTML, then under "Registered Patterns" add *.jsp
+----------------------------------------
+- Controller - Interpret exceptions
+- Service - Transactional
+- **View Name Mapping**:
+In your controller method, you probably return a logical view name, such as "greeting". This logical view name is then resolved by the `InternalResourceViewResolver`. It takes the prefix (configured in the resolver) and the suffix (also configured) and combines them with the logical view name to determine the actual path to the JSP file.
+----------------------------------------

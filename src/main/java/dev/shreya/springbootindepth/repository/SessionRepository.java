@@ -1,6 +1,6 @@
-package dev.shreya.springbootindepth.repositories;
+package dev.shreya.springbootindepth.repository;
 
-import dev.shreya.springbootindepth.models.Session;
+import dev.shreya.springbootindepth.entity.Session;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

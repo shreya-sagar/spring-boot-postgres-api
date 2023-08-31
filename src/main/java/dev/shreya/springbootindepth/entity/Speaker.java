@@ -1,4 +1,4 @@
-package dev.shreya.springbootindepth.models;
+package dev.shreya.springbootindepth.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.CascadeType;
@@ -13,8 +13,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.JdbcType;
-import org.hibernate.annotations.Type;
-import org.hibernate.type.descriptor.jdbc.BinaryJdbcType;
 import org.hibernate.type.descriptor.jdbc.VarbinaryJdbcType;
 
 @Entity(name = "speakers")

@@ -1,9 +1,8 @@
-package dev.shreya.springbootindepth.controllers;
+package dev.shreya.springbootindepth.controller.rest;
 
 import dev.shreya.springbootindepth.dto.SpeakerDto;
-import dev.shreya.springbootindepth.dto.SpeakerDto;
-import dev.shreya.springbootindepth.models.Speaker;
-import dev.shreya.springbootindepth.repositories.SpeakerRepository;
+import dev.shreya.springbootindepth.entity.Speaker;
+import dev.shreya.springbootindepth.repository.SpeakerRepository;
 import jakarta.validation.Valid;
 import java.util.List;
 import java.util.Optional;

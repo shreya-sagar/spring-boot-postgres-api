@@ -1,8 +1,8 @@
-package dev.shreya.springbootindepth.controllers;
+package dev.shreya.springbootindepth.controller.rest;
 
 import dev.shreya.springbootindepth.dto.SessionDto;
-import dev.shreya.springbootindepth.models.Session;
-import dev.shreya.springbootindepth.repositories.SessionRepository;
+import dev.shreya.springbootindepth.entity.Session;
+import dev.shreya.springbootindepth.repository.SessionRepository;
 import jakarta.validation.Valid;
 import java.util.List;
 import java.util.Optional;
